@@ -1,9 +1,9 @@
 #include <iostream>
 #include <Windows.h>
+using namespace std;
 
 #pragma once
-class autoClicker
+namespace autoClicker
 {
-
-};
-
+	void Click();
+}
