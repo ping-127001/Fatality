@@ -42,7 +42,10 @@
     <ClInclude Include="cheat\gui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cheat\Handler\autoClicker.h">
+    <ClInclude Include="cheat\Handler\processChecker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cheat\Handler\messageBox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -74,7 +77,7 @@
     <ClCompile Include="cheat\gui.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cheat\Handler\autoClicker.cpp">
+    <ClCompile Include="cheat\Handler\messageBox.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
