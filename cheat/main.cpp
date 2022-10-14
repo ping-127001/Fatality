@@ -1,9 +1,23 @@
 #include "gui.h"
+#include "Handler/messageBox.h"
+#include "Handler/processChecker.h"
+#include "Handler/zippedChecker.h"
 
 #include <thread>
 
+bool debugging = false;
+
 int __stdcall wWinMain(HINSTANCE instance, HINSTANCE previousInstance, PWSTR arguments, int commandShow)
 {
+	if (!debugging)
+	{
+		if (!processChecker::isProcessRunning("javaw"))
+		{
+			messageBox::createMessage("Minecraft not detected, please restart Fatality when javaw is running");
+			exit(1);
+		}
+	}
+
 	// create gui 
 	gui::createHWindow("Fatality 1.0", "Auto Clicker");
 	gui::createDevice();
