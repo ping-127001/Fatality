@@ -1,4 +1,5 @@
 #include "gui.h"
+#include "Handler/autoClicker.h"
 
 #include "../imgui/imgui.h"
 #include "../imgui/imgui_impl_dx9.h"
@@ -15,21 +16,27 @@ long __stdcall WindowProcess(HWND window, UINT message, WPARAM wideParameter, LP
 
 	switch (message)
 	{
-		case WM_SIZE: {
+		case WM_SIZE: 
+		{
 			if ((wideParameter & 0xffff0) == SC_KEYMENU) // disable ALT application menu
-			return 0;
+			{
+				return 0;
+			}
 		}break;
 
-		case WM_DESTROY: {
+		case WM_DESTROY: 
+		{
 			PostQuitMessage(0);
 			return 0;
 		}
 
-		case WM_LBUTTONDOWN: {
+		case WM_LBUTTONDOWN: 
+		{
 			gui::position = MAKEPOINTS(longParameter); // set click points
 		}return 0;
 
-		case WM_MOUSEMOVE: {
+		case WM_MOUSEMOVE: 
+		{
 			if (wideParameter == MK_LBUTTON)
 			{
 				const auto points = MAKEPOINTS(longParameter);
@@ -47,7 +54,6 @@ long __stdcall WindowProcess(HWND window, UINT message, WPARAM wideParameter, LP
 			}
 		}
 }
-
 
 	return DefWindowProcW(window, message, wideParameter, longParameter);
 }
@@ -69,7 +75,8 @@ void gui::createHWindow(const char* windowName, const char* className) noexcept
 
 	RegisterClassExA(&windowClass);
 
-	window = CreateWindowA(
+	window = CreateWindowA
+	(
 		className,
 		windowName,
 		WS_POPUP,
@@ -111,7 +118,8 @@ bool gui::createDevice() noexcept
 	presentParameters.AutoDepthStencilFormat = D3DFMT_D16;
 	presentParameters.PresentationInterval = D3DPRESENT_INTERVAL_ONE;
 
-	if (d3d->CreateDevice(
+	if (d3d->CreateDevice
+	(
 		D3DADAPTER_DEFAULT,
 		D3DDEVTYPE_HAL,
 		window,
@@ -222,7 +230,8 @@ void gui::Render() noexcept
 {
 	ImGui::SetNextWindowPos({ 0, 0 });
 	ImGui::SetNextWindowSize({ WIDTH, HEIGHT });
-	ImGui::Begin(
+	ImGui::Begin
+	(
 		"Fatality",
 		&exit,
 		ImGuiWindowFlags_NoResize |
@@ -240,7 +249,7 @@ void gui::Render() noexcept
 	static bool autoclickertoggle = false;
 	if (ImGui::Checkbox("Auto Clicker", &autoclickertoggle))
 	{
-
+		//autoClicker::Click(); //auto clicker needs work
 	}
 	
 
