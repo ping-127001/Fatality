@@ -140,6 +140,7 @@
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="cheat\Handler\processChecker.h" />
     <ClInclude Include="cheat\Handler\messageBox.h" />
+    <ClInclude Include="cheat\Handler\zippedChecker.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cheat\gui.cpp" />
