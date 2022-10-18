@@ -1,5 +1,4 @@
 #include "gui.h"
-#include "Handler/autoClicker.h"
 
 #include "../imgui/imgui.h"
 #include "../imgui/imgui_impl_dx9.h"
@@ -241,16 +240,15 @@ void gui::Render() noexcept
 	);
 
 	// controls
-	if (ImGui::Button("test"))
-	{
-
-	}
 
 	static bool autoclickertoggle = false;
 	if (ImGui::Checkbox("Auto Clicker", &autoclickertoggle))
 	{
-		//autoClicker::Click(); //auto clicker needs work
+		//autoClick(); //auto clicker needs work
 	}
+
+	static int cpsint = 0;
+	ImGui::SliderInt("cps", &cpsint, 1, 28);
 	
 
 	// styling
@@ -262,8 +260,12 @@ void gui::Render() noexcept
 	ImGui::PushStyleColor(ImGuiCol_ScrollbarGrab, IM_COL32(234, 15, 87, 255));
 	ImGui::PushStyleColor(ImGuiCol_ScrollbarGrabActive, IM_COL32(234, 15, 87, 255));
 	ImGui::PushStyleColor(ImGuiCol_ScrollbarGrabHovered, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_SliderGrab, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_SliderGrabActive, IM_COL32(234, 15, 87, 255));
 	ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(27, 23, 74, 255));
 	ImGui::PushStyleColor(ImGuiCol_CheckMark, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_FrameBgHovered, IM_COL32(27, 23, 74, 255));
+	ImGui::PushStyleColor(ImGuiCol_FrameBgActive, IM_COL32(27, 23, 74, 255));
 	ImGui::PushStyleColor(ImGuiCol_TitleBgActive, IM_COL32(0, 0, 0, 255));
 	colors[ImGuiCol_Border] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f); // transparent border
 
@@ -271,4 +273,20 @@ void gui::Render() noexcept
 	//ImGui::ShowStyleEditor();
 
 	ImGui::End();
+}
+
+bool clickerstate = true;
+
+void autoClick()
+{
+	while (true)
+	{
+		if (clickerstate)
+		{
+			// mouse click
+			mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+			mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+		}
+		Sleep(10); // this determines the auto clicker speed
+	}
 }
