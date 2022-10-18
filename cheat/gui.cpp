@@ -248,7 +248,7 @@ void gui::Render() noexcept
 	}
 
 	static int cpsint = 0;
-	ImGui::SliderInt("cps", &cpsint, 1, 28);
+	ImGui::SliderInt("cps", &cpsint, 1, 25);
 	
 
 	// styling
