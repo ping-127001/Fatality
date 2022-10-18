@@ -141,6 +141,7 @@
     <ClInclude Include="cheat\Handler\processChecker.h" />
     <ClInclude Include="cheat\Handler\messageBox.h" />
     <ClInclude Include="cheat\Handler\zippedChecker.h" />
+    <ClInclude Include="cheat\Handler\memoryEditor.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cheat\gui.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="imgui\imgui_tables.cpp" />
     <ClCompile Include="imgui\imgui_widgets.cpp" />
     <ClCompile Include="cheat\Handler\messageBox.cpp" />
+    <ClCompile Include="cheat\Handler\memoryEditor.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
