@@ -175,6 +175,25 @@ void gui::createImGui() noexcept
 
 	ImGui_ImplWin32_Init(window);
 	ImGui_ImplDX9_Init(device);
+
+
+	// styling
+	ImVec4* colors = ImGui::GetStyle().Colors;
+	ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(18, 15, 39, 255));
+	ImGui::PushStyleColor(ImGuiCol_Button, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_ButtonActive, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_ScrollbarGrab, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_ScrollbarGrabActive, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_ScrollbarGrabHovered, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_SliderGrab, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_SliderGrabActive, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(27, 23, 74, 255));
+	ImGui::PushStyleColor(ImGuiCol_CheckMark, IM_COL32(234, 15, 87, 255));
+	ImGui::PushStyleColor(ImGuiCol_FrameBgHovered, IM_COL32(27, 23, 74, 255));
+	ImGui::PushStyleColor(ImGuiCol_FrameBgActive, IM_COL32(27, 23, 74, 255));
+	ImGui::PushStyleColor(ImGuiCol_TitleBgActive, IM_COL32(0, 0, 0, 255));
+	colors[ImGuiCol_Border] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f); // transparent border
 }
 
 void gui::destroyImGui() noexcept
@@ -249,25 +268,7 @@ void gui::Render() noexcept
 
 	static int cpsint = 0;
 	ImGui::SliderInt("cps", &cpsint, 1, 25);
-	
 
-	// styling
-	ImVec4* colors = ImGui::GetStyle().Colors;
-	ImGui::PushStyleColor(ImGuiCol_WindowBg, IM_COL32(18, 15, 39, 255));
-	ImGui::PushStyleColor(ImGuiCol_Button, IM_COL32(234, 15, 87, 255));
-	ImGui::PushStyleColor(ImGuiCol_ButtonHovered, IM_COL32(234, 15, 87, 255));
-	ImGui::PushStyleColor(ImGuiCol_ButtonActive, IM_COL32(234, 15, 87, 255));
-	ImGui::PushStyleColor(ImGuiCol_ScrollbarGrab, IM_COL32(234, 15, 87, 255));
-	ImGui::PushStyleColor(ImGuiCol_ScrollbarGrabActive, IM_COL32(234, 15, 87, 255));
-	ImGui::PushStyleColor(ImGuiCol_ScrollbarGrabHovered, IM_COL32(234, 15, 87, 255));
-	ImGui::PushStyleColor(ImGuiCol_SliderGrab, IM_COL32(234, 15, 87, 255));
-	ImGui::PushStyleColor(ImGuiCol_SliderGrabActive, IM_COL32(234, 15, 87, 255));
-	ImGui::PushStyleColor(ImGuiCol_FrameBg, IM_COL32(27, 23, 74, 255));
-	ImGui::PushStyleColor(ImGuiCol_CheckMark, IM_COL32(234, 15, 87, 255));
-	ImGui::PushStyleColor(ImGuiCol_FrameBgHovered, IM_COL32(27, 23, 74, 255));
-	ImGui::PushStyleColor(ImGuiCol_FrameBgActive, IM_COL32(27, 23, 74, 255));
-	ImGui::PushStyleColor(ImGuiCol_TitleBgActive, IM_COL32(0, 0, 0, 255));
-	colors[ImGuiCol_Border] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f); // transparent border
 
 	// debugging stuff
 	//ImGui::ShowStyleEditor();
