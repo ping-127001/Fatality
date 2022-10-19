@@ -54,6 +54,9 @@
     <ClInclude Include="cheat\Handler\memoryEditor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="cheat\Handler\Converter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="imgui\imgui.cpp">
@@ -87,6 +90,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cheat\Handler\memoryEditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cheat\Handler\Converter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
